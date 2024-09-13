@@ -1,3 +1,6 @@
+# Python program to print all Primes Smaller
+# than or equal to N using Sieve of Eratosthenes
+#https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/
 import time
 import random
 import neopixel
@@ -55,7 +58,7 @@ def SieveOfEratosthenes(num):
         if prime[p]:
             print(p)
     pixels.fill(blank)
-
+    
 SieveOfEratosthenes(1000)
 r=997
 
@@ -73,7 +76,7 @@ while True:
     if touch2.value:
         Val = Val +2
         touched = time.monotonic()
-
+        
     if Val == 1:
         r = random.randrange(1001)
         while (not prime[r]):
