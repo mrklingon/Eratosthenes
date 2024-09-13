@@ -1,9 +1,11 @@
 # Python program to print all Primes Smaller
 # than or equal to N using Sieve of Eratosthenes
+# Version is all primes below 8000
 #https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/
 from adafruit_circuitplayground import cp
 import time
 import random
+import math
 
 blank = (0,0,0)
 red = (20,0,0)
@@ -13,9 +15,11 @@ green  = (0,20,0)
 blue = (0,0,8)
 
 def showbin(num):
+    bits = 1 + int(math.log(num)/math.log(2))
+    
     cp.pixels.fill(blue)
     if num != 0:
-        for i in range(13):
+        for i in range(bits):
             if i>9 and num >2**10:
                 for m in range(9):
                         cp.pixels[m]=cp.pixels[m+1]
@@ -25,10 +29,12 @@ def showbin(num):
                     cp.pixels[9] = green
                 else:
                     cp.pixels[i]= green
-            time.sleep(.5)
-
-    time.sleep(.5)
-
+            if (i > 9): time.sleep(.1)
+    if bits>9:
+        time.sleep(.5)
+    else:
+        time.sleep(.25)
+    
 def showdigit(num):
     cp.pixels.fill(blue)
     for i in range(num):
@@ -46,7 +52,6 @@ def pick():  # create a random color
 
 def rndcolor():
     cp.pixels[random.randrange(10)] = pick()
-    time.sleep(.1)
 
 def isprime(val):
     global prime
@@ -88,6 +93,9 @@ def SieveOfEratosthenes(num):
     for p in range(2, (8*num)+1):
         if isprime(p):
             print(p)
+    for i in range(10):
+        cp.pixels[i] = blank
+        time.sleep(.1)
 SieveOfEratosthenes(1000)
 r=997
 
@@ -106,8 +114,9 @@ while True:
     if cp.button_b:
         for p in range(2, 8000):
             if isprime(p):
-                showbin(p)
                 print(p)
+                showbin(p)
+                
 
 
     if cp.touch_A1:#last value of R
