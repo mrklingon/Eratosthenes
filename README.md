@@ -17,3 +17,4 @@ NeoTrinkey version. It finds all primes < 1000. First it flashes colored lights 
 All of the Circuit Python version (neotrinkey or Circuit Playground), if connected to Mu or a similar IDE, will print information to the REPL.
 
 
+Code based on https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/ - MakeCode version written from scratch recreating the algorithm followed in sample code.
