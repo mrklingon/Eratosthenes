@@ -15,7 +15,7 @@ blue = (0,0,8)
 def showbin(num):
     cp.pixels.fill(blue)
     if num != 0:
-        for i in range(20):
+        for i in range(13):
             if i>9 and num >2**10:
                 for m in range(9):
                         cp.pixels[m]=cp.pixels[m+1]
@@ -23,9 +23,9 @@ def showbin(num):
             if ((2**i)&num)>0:
                 if i>9:
                     cp.pixels[9] = green
-                    time.sleep(.5)
                 else:
                     cp.pixels[i]= green
+            time.sleep(.5)
 
     time.sleep(.5)
 
