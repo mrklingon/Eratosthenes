@@ -1,6 +1,6 @@
-# Python program to print all Primes Smaller 
+# Python program to print all Primes Smaller
 # than or equal to N using Sieve of Eratosthenes
-#https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/ 
+#https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/
 from adafruit_circuitplayground import cp
 import time
 import random
@@ -25,7 +25,7 @@ def showdigit(num):
     for i in range(num):
         cp.pixels[i] = yellow
     time.sleep(1)
-    
+
 
 def shownum(num):
     snum = str(num)
@@ -46,7 +46,7 @@ def SieveOfEratosthenes(num):
 # boolean array
     p = 2
     while (p * p <= num):
- 
+
         # If prime[p] is not
         # changed, then it is a prime
         if (prime[p] == True):
@@ -56,12 +56,12 @@ def SieveOfEratosthenes(num):
                 prime[i] = False
         rndcolor()
         p += 1
- 
+
     # Print all prime numbers
     for p in range(2, num+1):
         if prime[p]:
             print(p)
- 
+
 SieveOfEratosthenes(1000)
 r=997
 
@@ -76,14 +76,14 @@ while True:
         shownum(r)
         time.sleep(1)
         cp.pixels.fill(blank)
-        
+
     if cp.button_b:
         for p in range(2, 1001):
             if prime[p]:
                 showbin(p)
                 print(p)
-   
-  
+
+
     if cp.touch_A1:#last value of R
         showbin(r)
         time.sleep(1)
@@ -91,4 +91,3 @@ while True:
         shownum(r)
         time.sleep(1)
         cp.pixels.fill(blank)
-        
