@@ -5,7 +5,7 @@ Circuit Playground code for finding Prime Numbers
 * ESieve.py - CircuitPython for finding all primes < 1000 - copy to code.py
 * ESievePlus.py - CircuitPython for finding all primes < 8000 - copy to code.py
 
-All three of the above will flash colored lights while searching for the prime numbers. When done, A will pick a random prime and display it, first in binary, then digit-by-digit in decimal version. Pressing B will step through all of the primes if found, displaying in binary. Touch A1 to display the last random prime it found.
+All three of the above will flash colored lights while searching for the prime numbers. When done, A will pick a random prime and display it, first in binary, then digit-by-digit in decimal version. Pressing B will step through all of the primes it found, displaying in binary. Touch A1 to display the last random prime it found.
 
 
 
