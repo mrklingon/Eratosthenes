@@ -1,6 +1,8 @@
 # Python program to print all Primes Smaller
-# than or equal to N using Sieve of Eratosthenes
+# than or equal to (bits * 1000) using Sieve of Eratosthenes
 #https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/
+#An array of 1000 numbers of "bits" length are used to calculate 
+
 import time
 import random
 import neopixel
@@ -34,21 +36,21 @@ def shownum(num):
             binnum(eval(snum[i]),green)
             time.sleep(.2)
 
-
+bits = 29
 
 def isprime(val):
     global prime
-    cell = int(val/10)
-    bit = val - cell*10
+    cell = int(val/bits)
+    bit = val - cell*bits
     if prime[cell]&(2**bit) != 0:
         return True
     else:
         return False
-
+ 
 def notprime(val):
     global prime
-    cell = int(val/10)
-    bit = val - cell*10
+    cell = int(val/bits)
+    bit = val - cell*bits
     if isprime(val):
         prime[cell] = prime[cell] ^ (2 ** bit)
 
@@ -60,26 +62,29 @@ def SieveOfEratosthenes(num):
     notprime(0)
 # boolean array
     p = 2
-    while (p * p <= 10*num):
+    while (p * p <= bits*num):
 
         # If prime[p] is not
         # changed, then it is a prime
         if (isprime(p) == True):
             rndcolor()
             # Updating all multiples of p
-            for i in range(p * p, (10*num)+1, p):
+            for i in range(p * p, (bits*num)+1, p):
                 notprime(i)
         p += 1
         rndcolor()
-
+    primecount = 0
     # Print all prime numbers
-    for p in range(2, (10*num)+1):
+    for p in range(2, (bits*num)+1):
         if isprime(p):
             print(p)
+            primecount = primecount + 1
     for i in range(4):
         pixels[i] = blank
         time.sleep(.1)
-
+    print ("found "+str(primecount)+ " numbers")
+    
+    
 SieveOfEratosthenes(1000)
 r=3
 
